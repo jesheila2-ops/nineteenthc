@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, My Love!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Dancing+Script:wght@600;700&family=Great+Vibes&family=Pinyon+Script&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="nineteenth.css">
+
+<style>
+/* ── Floral PNG overlays beside the letter card ── */
+.letter-floral-png {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+  object-fit: contain;
+  opacity: 0.95;
+}
+
+/* Baby's breath — upper RIGHT, hangs off the top-right corner */
+.letter-floral-png--tl {
+  width: 180px;
+  height: 180px;
+  top: -55px;
+  right: -75px;
+  left: auto;
+  transform: rotate(-15deg);
+}
+
+/* Carnation — lower LEFT, mostly outside with a little peeking inside */
+.letter-floral-png--bl {
+  width: 140px;
+  height: 140px;
+  bottom: -65px;
+  left: -105px;
+  transform: rotate(-10deg);
+}
+
+@media (max-width: 480px) {
+  .letter-floral-png--tl { width: 120px; height: 120px; top: -38px; right: -50px; left: auto; }
+  .letter-floral-png--bl { width: 100px; height: 100px; bottom: -45px; left: -72px; }
+}
+@media (max-width: 400px) {
+  .letter-floral-png--tl { width: 95px; height: 95px; top: -28px; right: -38px; left: auto; }
+  .letter-floral-png--bl { width: 80px; height: 80px; bottom: -36px; left: -56px; }
+}
+</style>
+</head>
+<body>
+
+<!-- =================================================================
+     PAGE 1 — ENVELOPE
+     ================================================================= -->
+<section id="page-envelope" class="page active">
+  <div class="scene" id="scene">
+    <h1 class="title">You got a mail!</h1>
+    <div class="envelope-wrap" id="envelope" title="Click to open">
+      <svg class="envelope-svg" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="var(--envelope-light)"/>
+            <stop offset="100%" stop-color="var(--envelope-dark)"/>
+          </linearGradient>
+          <linearGradient id="flapGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#c4316e"/>
+            <stop offset="100%" stop-color="var(--envelope-dark)"/>
+          </linearGradient>
+          <radialGradient id="goldGrad" cx="35%" cy="30%" r="75%">
+            <stop offset="0%" stop-color="var(--gold-light)"/>
+            <stop offset="55%" stop-color="var(--gold-mid)"/>
+            <stop offset="100%" stop-color="var(--gold-dark)"/>
+          </radialGradient>
+        </defs>
+        <rect x="6" y="6" width="388" height="248" rx="6" fill="url(#bodyGrad)" stroke="var(--envelope-edge)" stroke-width="3"/>
+        <polygon points="6,6 200,150 394,6" fill="url(#flapGrad)" stroke="var(--envelope-edge)" stroke-width="2.5" opacity="0.9"/>
+        <polygon points="6,254 100,254 6,190" fill="var(--envelope-edge)" opacity="0.35"/>
+        <polygon points="394,254 300,254 394,190" fill="var(--envelope-edge)" opacity="0.35"/>
+        <g class="seal">
+          <circle cx="200" cy="150" r="42" fill="url(#goldGrad)" stroke="var(--gold-dark)" stroke-width="2"/>
+          <circle cx="200" cy="150" r="42" fill="none" stroke="rgba(0,0,0,0.25)" stroke-width="1.5"/>
+          <circle cx="160" cy="178" r="6" fill="var(--gold-mid)"/>
+          <circle cx="238" cy="120" r="5" fill="var(--gold-light)" opacity="0.6"/>
+          <g stroke="#6b4612" stroke-width="2.4" fill="none" stroke-linecap="round">
+            <path d="M200 130 L200 172"/>
+            <path d="M200 138 C190 134 184 126 184 118"/>
+            <path d="M200 138 C210 134 216 126 216 118"/>
+            <path d="M200 150 C192 147 187 140 187 133"/>
+            <path d="M200 150 C208 147 213 140 213 133"/>
+            <path d="M200 162 C194 160 190 155 190 149"/>
+            <path d="M200 162 C206 160 210 155 210 149"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+
+<!-- =================================================================
+     PAGE 2 — LETTER
+     ================================================================= -->
+<section id="page-letter" class="page">
+  <div class="letter-stage">
+    <div class="petal-field" aria-hidden="true" id="petals"></div>
+
+    <!-- ✿ FLORAL CORNER DECORATIONS — letter page ✿ -->
+    <!-- Top-left: purple baby's breath cluster -->
+    <svg class="letter-floral letter-floral--tl" viewBox="0 0 160 160" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <!-- stems -->
+      <g fill="none" stroke="#7a6e9a" stroke-width="1.2" stroke-linecap="round">
+        <path d="M10 150 C 30 120 50 100 80 70"/>
+        <path d="M10 150 C 35 115 60 95 90 60"/>
+        <path d="M10 150 C 25 125 40 110 60 90"/>
+        <path d="M25 150 C 45 125 65 105 95 75"/>
+        <path d="M15 150 C 50 110 75 85 110 55"/>
+        <!-- branch sprigs -->
+        <path d="M40 120 C 35 110 32 100 38 93"/>
+        <path d="M55 105 C 50 95 52 85 60 80"/>
+        <path d="M70 90  C 65 82 68 72 76 68"/>
+        <path d="M85 75  C 80 67 83 57 91 53"/>
+        <path d="M50 115 C 58 108 68 108 74 103"/>
+        <path d="M67 100 C 75 93 85 93 91 88"/>
+      </g>
+      <!-- baby's breath tiny blossoms (purple) -->
+      <g>
+        <!-- cluster 1 near top-right -->
+        <circle cx="80" cy="68" r="2.8" fill="#9b7fc7"/>
+        <circle cx="86" cy="62" r="2.4" fill="#b89de0"/>
+        <circle cx="76" cy="60" r="2.2" fill="#7f5cb5"/>
+        <circle cx="83" cy="72" r="2" fill="#c4aee8"/>
+        <circle cx="91" cy="58" r="2.5" fill="#9b7fc7"/>
+        <!-- cluster 2 mid -->
+        <circle cx="60" cy="88" r="2.6" fill="#7f5cb5"/>
+        <circle cx="67" cy="83" r="2.3" fill="#9b7fc7"/>
+        <circle cx="54" cy="84" r="2"   fill="#b89de0"/>
+        <circle cx="63" cy="93" r="2.2" fill="#c4aee8"/>
+        <!-- cluster 3 lower -->
+        <circle cx="40" cy="110" r="2.5" fill="#9b7fc7"/>
+        <circle cx="47" cy="104" r="2.2" fill="#b89de0"/>
+        <circle cx="34" cy="107" r="2"   fill="#7f5cb5"/>
+        <circle cx="43" cy="116" r="1.8" fill="#c4aee8"/>
+        <!-- scatter -->
+        <circle cx="74" cy="100" r="2"   fill="#9b7fc7"/>
+        <circle cx="91" cy="85"  r="2.2" fill="#b89de0"/>
+        <circle cx="108" cy="52" r="2.5" fill="#7f5cb5"/>
+        <circle cx="113" cy="58" r="2"   fill="#c4aee8"/>
+        <circle cx="100" cy="68" r="2.3" fill="#9b7fc7"/>
+        <circle cx="98"  cy="78" r="2"   fill="#b89de0"/>
+      </g>
+      <!-- carnation top-right corner -->
+      <g transform="translate(108, 32) rotate(-10)">
+        <!-- petals layered -->
+        <ellipse cx="0" cy="-9" rx="5.5" ry="9"   fill="#c97bbf" opacity="0.9"/>
+        <ellipse cx="0" cy="-9" rx="5.5" ry="9"   fill="#c97bbf" opacity="0.9" transform="rotate(40)"/>
+        <ellipse cx="0" cy="-9" rx="5.5" ry="9"   fill="#d48ec9" opacity="0.85" transform="rotate(80)"/>
+        <ellipse cx="0" cy="-9" rx="5.5" ry="9"   fill="#ba6db3" opacity="0.85" transform="rotate(120)"/>
+        <ellipse cx="0" cy="-9" rx="5.5" ry="9"   fill="#d48ec9" opacity="0.85" transform="rotate(160)"/>
+        <ellipse cx="0" cy="-9" rx="5.5" ry="9"   fill="#c97bbf" opacity="0.9" transform="rotate(200)"/>
+        <ellipse cx="0" cy="-9" rx="5.5" ry="9"   fill="#ba6db3" opacity="0.85" transform="rotate(240)"/>
+        <ellipse cx="0" cy="-9" rx="5.5" ry="9"   fill="#d48ec9" opacity="0.85" transform="rotate(280)"/>
+        <ellipse cx="0" cy="-9" rx="5.5" ry="9"   fill="#c97bbf" opacity="0.9" transform="rotate(320)"/>
+        <!-- frilled petal edges -->
+        <circle cx="0" cy="0" r="5" fill="#e8b0e0" opacity="0.7"/>
+        <circle cx="0" cy="0" r="3" fill="#f2cced" opacity="0.8"/>
+      </g>
+      <!-- small carnation bud mid-left -->
+      <g transform="translate(50, 118) rotate(20)">
+        <ellipse cx="0" cy="-5.5" rx="3.5" ry="5.5" fill="#c97bbf" opacity="0.85"/>
+        <ellipse cx="0" cy="-5.5" rx="3.5" ry="5.5" fill="#d48ec9" opacity="0.8" transform="rotate(60)"/>
+        <ellipse cx="0" cy="-5.5" rx="3.5" ry="5.5" fill="#ba6db3" opacity="0.8" transform="rotate(120)"/>
+        <ellipse cx="0" cy="-5.5" rx="3.5" ry="5.5" fill="#d48ec9" opacity="0.8" transform="rotate(180)"/>
+        <ellipse cx="0" cy="-5.5" rx="3.5" ry="5.5" fill="#c97bbf" opacity="0.85" transform="rotate(240)"/>
+        <ellipse cx="0" cy="-5.5" rx="3.5" ry="5.5" fill="#ba6db3" opacity="0.8" transform="rotate(300)"/>
+        <circle cx="0" cy="0" r="3" fill="#f2cced" opacity="0.75"/>
+      </g>
+      <!-- leaves -->
+      <g fill="#6b8e6a" opacity="0.8">
+        <ellipse cx="95" cy="74" rx="7"   ry="2.8" transform="rotate(-30 95 74)"/>
+        <ellipse cx="70" cy="95" rx="6.5" ry="2.5" transform="rotate(-20 70 95)"/>
+        <ellipse cx="48" cy="115" rx="6"  ry="2.4" transform="rotate(-10 48 115)"/>
+        <ellipse cx="78" cy="68" rx="5"   ry="2"   transform="rotate(15 78 68)"/>
+      </g>
+    </svg>
+
+    <!-- Bottom-right: matching floral corner (mirrored) -->
+    <svg class="letter-floral letter-floral--br" viewBox="0 0 160 160" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <!-- mirror of top-left -->
+      <g fill="none" stroke="#7a6e9a" stroke-width="1.2" stroke-linecap="round">
+        <path d="M10 150 C 30 120 50 100 80 70"/>
+        <path d="M10 150 C 35 115 60 95 90 60"/>
+        <path d="M10 150 C 25 125 40 110 60 90"/>
+        <path d="M25 150 C 45 125 65 105 95 75"/>
+        <path d="M15 150 C 50 110 75 85 110 55"/>
+        <path d="M40 120 C 35 110 32 100 38 93"/>
+        <path d="M55 105 C 50 95 52 85 60 80"/>
+        <path d="M70 90  C 65 82 68 72 76 68"/>
+        <path d="M85 75  C 80 67 83 57 91 53"/>
+        <path d="M50 115 C 58 108 68 108 74 103"/>
+        <path d="M67 100 C 75 93 85 93 91 88"/>
+      </g>
+      <g>
+        <circle cx="80" cy="68" r="2.8" fill="#9b7fc7"/>
+        <circle cx="86" cy="62" r="2.4" fill="#b89de0"/>
+        <circle cx="76" cy="60" r="2.2" fill="#7f5cb5"/>
+        <circle cx="83" cy="72" r="2"   fill="#c4aee8"/>
+        <circle cx="91" cy="58" r="2.5" fill="#9b7fc7"/>
+        <circle cx="60" cy="88" r="2.6" fill="#7f5cb5"/>
+        <circle cx="67" cy="83" r="2.3" fill="#9b7fc7"/>
+        <circle cx="54" cy="84" r="2"   fill="#b89de0"/>
+        <circle cx="63" cy="93" r="2.2" fill="#c4aee8"/>
+        <circle cx="40" cy="110" r="2.5" fill="#9b7fc7"/>
+        <circle cx="47" cy="104" r="2.2" fill="#b89de0"/>
+        <circle cx="34" cy="107" r="2"   fill="#7f5cb5"/>
+        <circle cx="43" cy="116" r="1.8" fill="#c4aee8"/>
+        <circle cx="74" cy="100" r="2"   fill="#9b7fc7"/>
+        <circle cx="91" cy="85"  r="2.2" fill="#b89de0"/>
+        <circle cx="108" cy="52" r="2.5" fill="#7f5cb5"/>
+        <circle cx="113" cy="58" r="2"   fill="#c4aee8"/>
+        <circle cx="100" cy="68" r="2.3" fill="#9b7fc7"/>
+        <circle cx="98"  cy="78" r="2"   fill="#b89de0"/>
+      </g>
+      <g transform="translate(108, 32) rotate(-10)">
+        <ellipse cx="0" cy="-9" rx="5.5" ry="9"   fill="#c97bbf" opacity="0.9"/>
+        <ellipse cx="0" cy="-9" rx="5.5" ry="9"   fill="#c97bbf" opacity="0.9" transform="rotate(40)"/>
+        <ellipse cx="0" cy="-9" rx="5.5" ry="9"   fill="#d48ec9" opacity="0.85" transform="rotate(80)"/>
+        <ellipse cx="0" cy="-9" rx="5.5" ry="9"   fill="#ba6db3" opacity="0.85" transform="rotate(120)"/>
+        <ellipse cx="0" cy="-9" rx="5.5" ry="9"   fill="#d48ec9" opacity="0.85" transform="rotate(160)"/>
+        <ellipse cx="0" cy="-9" rx="5.5" ry="9"   fill="#c97bbf" opacity="0.9" transform="rotate(200)"/>
+        <ellipse cx="0" cy="-9" rx="5.5" ry="9"   fill="#ba6db3" opacity="0.85" transform="rotate(240)"/>
+        <ellipse cx="0" cy="-9" rx="5.5" ry="9"   fill="#d48ec9" opacity="0.85" transform="rotate(280)"/>
+        <ellipse cx="0" cy="-9" rx="5.5" ry="9"   fill="#c97bbf" opacity="0.9" transform="rotate(320)"/>
+        <circle cx="0" cy="0" r="5" fill="#e8b0e0" opacity="0.7"/>
+        <circle cx="0" cy="0" r="3" fill="#f2cced" opacity="0.8"/>
+      </g>
+      <g transform="translate(50, 118) rotate(20)">
+        <ellipse cx="0" cy="-5.5" rx="3.5" ry="5.5" fill="#c97bbf" opacity="0.85"/>
+        <ellipse cx="0" cy="-5.5" rx="3.5" ry="5.5" fill="#d48ec9" opacity="0.8" transform="rotate(60)"/>
+        <ellipse cx="0" cy="-5.5" rx="3.5" ry="5.5" fill="#ba6db3" opacity="0.8" transform="rotate(120)"/>
+        <ellipse cx="0" cy="-5.5" rx="3.5" ry="5.5" fill="#d48ec9" opacity="0.8" transform="rotate(180)"/>
+        <ellipse cx="0" cy="-5.5" rx="3.5" ry="5.5" fill="#c97bbf" opacity="0.85" transform="rotate(240)"/>
+        <ellipse cx="0" cy="-5.5" rx="3.5" ry="5.5" fill="#ba6db3" opacity="0.8" transform="rotate(300)"/>
+        <circle cx="0" cy="0" r="3" fill="#f2cced" opacity="0.75"/>
+      </g>
+      <g fill="#6b8e6a" opacity="0.8">
+        <ellipse cx="95" cy="74" rx="7"   ry="2.8" transform="rotate(-30 95 74)"/>
+        <ellipse cx="70" cy="95" rx="6.5" ry="2.5" transform="rotate(-20 70 95)"/>
+        <ellipse cx="48" cy="115" rx="6"  ry="2.4" transform="rotate(-10 48 115)"/>
+        <ellipse cx="78" cy="68" rx="5"   ry="2"   transform="rotate(15 78 68)"/>
+      </g>
+    </svg>
+
+    <main class="letter-wrap">
+      <article class="letter-card" style="overflow: visible;">
+        <span class="washi washi--tl"></span>
+        <span class="washi washi--br"></span>
+
+        <svg class="sprig sprig--tl" viewBox="0 0 120 120" aria-hidden="true">
+          <g fill="none" stroke="#6b8e5a" stroke-width="1.6" stroke-linecap="round">
+            <path d="M10 95 C 30 70, 55 55, 95 30" />
+            <path d="M30 80 C 25 70, 22 62, 25 55" />
+            <path d="M55 60 C 50 50, 50 42, 55 35" />
+          </g>
+          <g fill="#7ea36a">
+            <ellipse cx="28" cy="74" rx="6"   ry="3"   transform="rotate(-30 28 74)" />
+            <ellipse cx="42" cy="66" rx="7"   ry="3.2" transform="rotate(-25 42 66)" />
+            <ellipse cx="58" cy="55" rx="6"   ry="3"   transform="rotate(-20 58 55)" />
+            <ellipse cx="74" cy="45" rx="6.5" ry="3"   transform="rotate(-15 74 45)" />
+          </g>
+          <g transform="translate(92 32)">
+            <g fill="#d98ca0">
+              <ellipse cx="0" cy="-3.5" rx="2.2" ry="3.2" />
+              <ellipse cx="0" cy="-3.5" rx="2.2" ry="3.2" transform="rotate(72)" />
+              <ellipse cx="0" cy="-3.5" rx="2.2" ry="3.2" transform="rotate(144)" />
+              <ellipse cx="0" cy="-3.5" rx="2.2" ry="3.2" transform="rotate(216)" />
+              <ellipse cx="0" cy="-3.5" rx="2.2" ry="3.2" transform="rotate(288)" />
+            </g>
+            <circle r="1.8" fill="#f6d28a" />
+          </g>
+        </svg>
+
+        <svg class="sprig sprig--br" viewBox="0 0 120 120" aria-hidden="true">
+          <g fill="none" stroke="#6b8e5a" stroke-width="1.6" stroke-linecap="round">
+            <path d="M10 95 C 30 70, 55 55, 95 30" />
+            <path d="M30 80 C 25 70, 22 62, 25 55" />
+          </g>
+          <g fill="#7ea36a">
+            <ellipse cx="42" cy="66" rx="7"   ry="3.2" transform="rotate(-25 42 66)" />
+            <ellipse cx="58" cy="55" rx="6"   ry="3"   transform="rotate(-20 58 55)" />
+          </g>
+          <g transform="translate(92 32)">
+            <g fill="#d98ca0">
+              <ellipse cx="0" cy="-3.5" rx="2.2" ry="3.2" />
+              <ellipse cx="0" cy="-3.5" rx="2.2" ry="3.2" transform="rotate(72)" />
+              <ellipse cx="0" cy="-3.5" rx="2.2" ry="3.2" transform="rotate(144)" />
+              <ellipse cx="0" cy="-3.5" rx="2.2" ry="3.2" transform="rotate(216)" />
+              <ellipse cx="0" cy="-3.5" rx="2.2" ry="3.2" transform="rotate(288)" />
+            </g>
+            <circle r="1.8" fill="#f6d28a" />
+          </g>
+        </svg>
+
+        <!-- PNG FLORAL IMAGES -->
+        <img src="baby_breathh-removebg-preview.png" alt="" aria-hidden="true" class="letter-floral-png letter-floral-png--tl">
+        <img src="carnation-removebg-preview.png" alt="" aria-hidden="true" class="letter-floral-png letter-floral-png--bl">
+
+        <header>
+          <p class="letter-eyebrow">a little note · for you</p>
+          <h1 class="letter-title">Happy 3rd Anniversary, Mahal 🥹💛</h1>
+          <div class="letter-rule" aria-hidden="true">
+            <span></span>
+            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z" fill="currentColor"/></svg>
+            <span></span>
+          </div>
+        </header>
+
+        <div class="letter-body-wrap">
+          <div class="letter-body">
+            <p><span class="dropcap">I</span>'m really happy and proud to be yours, mahal. Grabe no? 3 years na kita. Dali la baga lumabay an panahon pero damo na gud kita naagian together. I'm so happy na umabot kita hin sugad ini na kaiha, and I'm looking forward for more years, more memories, more adventures, and more love with you. I hope you'll be happy with my gift. Maaram ako simple la ini, pero this is us lovey. Digital surprise la anay HAHAHAHA. Bawi ako sunod haimo, mas damo na gifts liwat. Tak gift haim digital tas waray ka selpon 😭 HAHAHAHA sorry gud love kay dre kasi kita magkikita.</p>
+            <p>Love, maaram ako na damo gud it ups and downs it aton relationship. Damo na moments nga natatawag naton nga toxic, damo na misunderstandings, damo na luha, tampo, away ngan mga panahon nga baga gusto na nat mag-give up. Pero love, ayaw kita pag give up ha aton ha? Kay bisan ano man an mahitabo, I still believe nga worth it kita ipaglaban. Damo na nat nalagpasan ngan maaram ako damo pa gud an maabot ha aton. Pero as long as magkaupod kita, kaya naton iton. 3 years na kita, and it shows how strong we are despite everything.</p>
+            <p>Lovelovee, I really love you and us. I love the life that we're building together. Kun may problema man kita, ayoson ta. Diri ta papabay-an nga matulog la an issue. Magyayakan kita, magkakaintindihan, ngan magtitinabangay. Kay at the end of the day, it's always you and me against the problem, not you against me.</p>
+            <p>We are a couple nga mas magpo-prosper if we always put God in the center of our relationship. Loveey, I know both of us nagkakaluya spiritually, mentally, physically, emotionally, financially, and in so many ways, especially ikaw. Pero ayaw nat kalimti an Ginoo. Siya la gihapon an makakahatag haaton kusog kun kapoy na kita. Let's continue praying together and trusting Him. I know He has beautiful plans for us.</p>
+            <p>Lovey, I know our relationship is not perfect, ngan diri man gud kinahanglan maging perfect. Pero I promise nga I will always try and try to fix things with you. I will always choose you over anyone else. Id always choose you than other man/boys. Ikaw na kaseee. Ikaw na talaga love HAHAHAHA. Ikaw na gud an gusto ko makaupod ha present ngan future.</p>
+            <p>Maaram ako nga diri na mababalik an dati nga kita, ngan accept ko na iton love. We both changed. We both matured. Naiintindihan ko na an imo ginyayakan nga diri kita permi bata ngan diri permi pareho han una. Pero honestly love, bata pa kasi ak huhuhu. Salamat kay sobra ka kapasyensyoso haakon. Halaba gud nim pasensya haak. Thank you for staying bisan usahay makulit ako, emotional, sensitive, overthinker, ngan sige nala ako nag-iisog siring mo. Huhuhu. I know usahay nakakadrain ako. I know usahay nakakasakal na. Nahadlok la gud ako mawara ka haak because I love you so much. Danay diri naak aware kun ano na an effect han actions ko haimo. Pero despite all of that, nagstay ka gihapon. Thank you love. Thank you for choosing me every single day.</p>
+            <p>Maaram ako nga problema ghapon ako usahay HAHAHAHA pero I promise I'm trying my best to work on myself. Diri ko man mababag-o overnight, pero ginpapaningkamotan ko gud. An imo mga advice haakon ginpapamatian ko gud… hagi nawawara la danay HAHAHAHAHA. Pero promise, I really appreciate every advice and every reminder nga imo ginhahatag haakon because you only want me to become a better person.</p>
+            <p>Love, I know struggle ka ghapon ha aton relationship, ngan I'm really sorry kun usahay ako mismo an nakakapa-stress haimo. Pero I promise I will try my best nga diri na ako an mahimong burden haimo. Instead, gusto ko ako an mahimong peace mo, comfort mo, backbone supporter mo, ngan an person nga makakahugot ka hin kusog every time kapoy ka na. I want to become your safe place just like how you've always been mine.</p>
+            <p>Salamat lovey ha tanan nga new experiences nga imo ginpa-experience haakon. 🥹 Damo gud ako nahibaroan tungod haimo. Usa ka ha mga rason kun kay ano nagin independent ako. Kun kay ano kaya ko na mag-order ha Jollibee nga ako la, kun kay ano maaram na ako mag-commute, kun kay ano maaram na ako tumabok nga waray kahadlok. HAHAHAHA. Tungod gud ito kay permi mo ako gin-uupod haimo mga lakat ngan haaton mga dates. Dati waray gud ako confidence magbuhat hiton nga mga butang, pero yana nakakaya ko na. Baga simple la hiya pamatian, pero dako gud an impact hito haakon.</p>
+            <p>You are one of the reasons, lovey, kun kay ano nagmamature ako. You became a big part of my life. Tungod haimo, nagg-grow ako as a person. You helped me become stronger, wiser, and more independent. Salamat kay pirme mo ako gin-eencourage ngan ginpapakita haakon nga kaya ko magbuhat hin mga butang nga akala ko diri ko kaya.</p>
+            <p>Tungod liwat haimo, namomotivate ako permi. Ikaw gud an inspiration ko tikang Grade 10 pa ako hasta yana nga incoming 3rd year na ako. 🥹 Kada may gusto na ako sumuko, ikaw an usa ha mga rason kun kay ano nagpapadayon ako. Gusto ko maging successful, diri la para haakon kundi para liwat ha future nga gin-aandam naton. Gusto ko nga someday, ipagmalaki ta an usag usa ngan masiring naton nga "worth it an tanan."</p>
+            <p>Love, maaram ako nga diri ka ghapon ha akon mga bugto. Pati ngani ako usahay love, diri ako hira. 😭 Pero I learned to accept them kay kadugo ko la gihapon hira. Gin-iintindi ko nala hira bisan sugad-sugad usahay. Thank you gud, lovey, for accepting me bisan nakita mo na an mga bad sides han amon family. Thank you kay waray ka bumaya. Honestly, naawod gud ako haimo usahay ngan nababaraka ako nga bangin dumiri ka haakon tungod han amon family. Pero nagstay ka gihapon, ngan gin-accept mo ako ngan an tanan nga kaapil haakon. Diri ko gud ito malilimtan. Salamat gud, mahal.</p>
+            <p>Love, part ka na gud tak family. Diri ka na la basta boyfriend para ha ira. Accept ka na ngani nira Mama ngan nira Kuya. My mother trusts you, ngan para haakon dako gud nga butang iton. Maaram ako nga diri basta-basta nagtitiwala hi Mama ha iba nga tawo, pero gin-open niya an iya heart para ha imo kay nakita niya kun ano ka nga klase hin tawo.</p>
+            <p>Nakita nira nga responsable ka, may respeto ka, ngan seryoso ka haakon. Nakikita nira kun paano mo ako tratuhon, kun paano mo ako alagaan, ngan kun paano mo ako higugmaon. Asya nagpapasalamat gud ako ha imo kay waray mo gud ako ginpabati nga ako la an imo ginpili, kundi pati an akon family imo liwat ginrespeto. Thank you kay ginpakita mo ha ira nga seryoso ka haakon ngan nga maupay an imo intensyon para ha aton.</p>
+            <p>I know may mga imperfections an akon family, ngan diri man pirmi okay an ngatanan, pero thank you kay waray ka nagbaya tungod hito. Thank you kay gin-accept mo kami bisan nakita mo an mga struggles ngan bad sides namon. It means so much to me love.</p>
+            <p>I really hope nga someday, both of our families will continue to support us as we grow together. Kay para haakon, diri la kita an nagmamahal ha usag-usa, kundi pati an aton mga pamilya nagiging part na liwat han aton journey. Huhuhu, it makes my heart so happy knowing nga accepted ka na nira ngan part ka na gud han amon pamilya. 🥹💛</p>
+            <p>Thank you lovey for every sacrifice, every effort, every understanding, ngan especially an imo endless patience. More than 3 years na ngani kita kay before pa hiton, gin-pursue mo na ako for almost one year ngan nag-talking stage pa kita. HAHAHAHA. Kun nahinunumdoman ko ito, kikilig gihapon ako. Imagine, all those months nga waray ka sumuko ha paghulat ngan pagpakita nga sincere ka. Thank you kay waray ka nag-give up haakon.</p>
+            <p>Love, gusto ko maaram ka nga I will always choose to fight for us. No matter how hard things get, no matter how many misunderstandings we face, gusto ko nga magpabilin kita nga magkaupod ngan magtinabangay. This relationship has been one of the greatest blessings God has given me. It made me experience genuine love, care, comfort, happiness, and growth. It taught me so many lessons about loving someone selflessly. Diri ko gusto nga mawara ini nga relationship kay diri la ikaw an boyfriend ko, ikaw liwat an best friend ko, comfort person ko, safe place ko, ngan home ko.</p>
+            <p>Love, may usa pa ako nga gusto ig-sorry haimo. Kun usahay nakakayakan ako nga "bulag na kita" o nakakayakan ako hin mga masasakit nga words kun nag-aaway kita, please know nga diri gud ito an akon tinutuyo ngan diri ko gud gusto nga matuod ito. Nadadara la gud ako han akon emotions ngan kasina. I know words can hurt, ngan I'm really sorry kun nasasakitan ka han akon mga nasisiring. I promise nga magtatrabaho pa gud ako ha akon self. I will learn to control my emotions, my anger issues, ngan an akon impulsive nga mga words. Kay diri ko gusto nga an akon emotions an makaguba han aton relationship.</p>
+            <p>Promise liwat love nga diri na ako magpapadala ha selos, especially ha iba nga mga babae. Maaram ako nga may trust ako haimo, ngan gusto ko ipakita ito pinaagi han akon actions. Diri man mawawara dayon an selos kay natural man ito, pero diri ko na hiya papagdaogon ha akon. Mas pipilion ko an pagsarig haimo kay maaram ako nga faithful ka ngan love mo ako. Thank you kay pirme mo ginpapakita pinaagi han imo actions nga ako la gihapon.</p>
+            <p>Maaram ako nga struggle gud kita yana kay waray ka pa selpon, ngan usahay talagsa nala kita magkachat. Namimiss gud taka permi. Pero love, bisan gutiay la an communication naton yana, diri ito nangangahulogan nga nabawasan an love naton ha usag usa, diba? Communication is important, pero an love diri nasusukol pinaagi la han kadamo han chats. I assure you, ikaw la gihapon an love ko. Waray iba ngan waray gud iba nga papuli ha imo lugar ha akon kasingkasing. Huhuhu. I want to become a more understanding girlfriend para haimo. Maaram ako nga diri permi madali an sitwasyon naton, pero I will continue understanding you, supporting you, ngan loving you through every season of our lives.</p>
+            <p>Thank you for loving me on my best days and even on my worst days. Thank you for choosing me every single day. As long as willing kita pareho mag-ayos, mag-grow, ngan mag-love ha usag usa, I know kaya naton an bisan ano.</p>
+            <p>Thank you for every "I love you", every good morning and good night, every call, every update, every lambing, every away nga ginaayos naton, every laugh, every memory, every sacrifice, and every effort nga imo ginhimo para haaton. Thank you for loving me even at my worst. Thank you for accepting me despite my flaws. Thank you for staying when it would've been easier to leave.</p>
+            <p>I pray nga someday, when we look back at these years, we'll smile because we chose to stay despite everything. I pray nga one day, we won't just celebrate monthsaries and anniversaries as boyfriend and girlfriend, but as husband and wife. 🥹🤍</p>
+            <p>No matter what happens in the future, I hope we never stop choosing each other. Let's continue growing together, healing together, praying together, laughing together, and achieving our dreams together.</p>
+            <p class="signoff">I love you always and forever, my love. More anniversaries to come. Thank you for making these 3 years the happiest years of my life. Here's to forever with you. Happy 3rd Anniversary, mahal ko. 🥹💛 <span class="signoff-heart">💛💛💛</span><br><br>Forever yours,<br>Your baby laryang rosiee 🤍</p>
+          </div>
+        </div>
+
+        <div class="wax-seal" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="34" height="34">
+            <g fill="#fff3da" opacity=".9">
+              <circle cx="20" cy="11" r="4" />
+              <circle cx="29" cy="20" r="4" />
+              <circle cx="20" cy="29" r="4" />
+              <circle cx="11" cy="20" r="4" />
+              <circle cx="20" cy="20" r="3.5" fill="#b88a2a" />
+            </g>
+          </svg>
+        </div>
+      </article>
+
+      <div class="nav-row">
+        <button type="button" class="next-pill" onclick="showPage('page-envelope')">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>go back</span>
+        </button>
+        <button type="button" class="next-pill" onclick="showPage('page-memory')">
+          <span>turn the page</span>
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </main>
+  </div>
+</section>
+
+
+<!-- =================================================================
+     PAGE 3 — MEMORY GRID
+     ================================================================= -->
+<section id="page-memory" class="page page-memory">
+
+  <!-- ✿ FLORAL CORNER DECORATIONS — memory page ✿ -->
+  <svg class="mem-floral mem-floral--tl" viewBox="0 0 180 180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#7a6e9a" stroke-width="1.4" stroke-linecap="round">
+      <path d="M5 175 C 30 140 60 110 100 75"/>
+      <path d="M5 175 C 40 135 75 105 115 68"/>
+      <path d="M5 175 C 20 150 40 130 70 105"/>
+      <path d="M20 175 C 50 140 80 115 120 82"/>
+      <path d="M5 175 C 55 125 90 95 130 58"/>
+      <path d="M45 140 C 38 128 35 115 42 105"/>
+      <path d="M65 118 C 58 106 60 93 68 86"/>
+      <path d="M88 96  C 82 85 86 72 95 66"/>
+      <path d="M110 75 C 103 64 107 52 116 47"/>
+      <path d="M60 125 C 72 117 85 117 93 110"/>
+      <path d="M82 103 C 94 95 107 95 115 88"/>
+    </g>
+    <g>
+      <circle cx="100" cy="73" r="3.2" fill="#9b7fc7"/>
+      <circle cx="108" cy="65" r="2.8" fill="#b89de0"/>
+      <circle cx="94"  cy="66" r="2.6" fill="#7f5cb5"/>
+      <circle cx="105" cy="79" r="2.4" fill="#c4aee8"/>
+      <circle cx="114" cy="60" r="3"   fill="#9b7fc7"/>
+      <circle cx="120" cy="70" r="2.5" fill="#b89de0"/>
+      <circle cx="92"  cy="80" r="2.2" fill="#7f5cb5"/>
+      <circle cx="75"  cy="93" r="3"   fill="#9b7fc7"/>
+      <circle cx="83"  cy="86" r="2.6" fill="#b89de0"/>
+      <circle cx="68"  cy="89" r="2.4" fill="#7f5cb5"/>
+      <circle cx="79"  cy="100" r="2.6" fill="#c4aee8"/>
+      <circle cx="91"  cy="102" r="2.2" fill="#9b7fc7"/>
+      <circle cx="115" cy="85" r="2.5" fill="#b89de0"/>
+      <circle cx="50"  cy="118" r="3"   fill="#9b7fc7"/>
+      <circle cx="60"  cy="110" r="2.6" fill="#b89de0"/>
+      <circle cx="43"  cy="114" r="2.4" fill="#7f5cb5"/>
+      <circle cx="55"  cy="125" r="2.2" fill="#c4aee8"/>
+      <circle cx="130" cy="55" r="3"   fill="#7f5cb5"/>
+      <circle cx="136" cy="63" r="2.5" fill="#c4aee8"/>
+      <circle cx="122" cy="80" r="2.4" fill="#9b7fc7"/>
+      <circle cx="108" cy="92" r="2.2" fill="#b89de0"/>
+      <circle cx="70"  cy="108" r="2"  fill="#c4aee8"/>
+    </g>
+    <g transform="translate(130, 34) rotate(-8)">
+      <ellipse cx="0" cy="-11" rx="6.5" ry="11"   fill="#c97bbf" opacity="0.9"/>
+      <ellipse cx="0" cy="-11" rx="6.5" ry="11"   fill="#c97bbf" opacity="0.9" transform="rotate(36)"/>
+      <ellipse cx="0" cy="-11" rx="6.5" ry="11"   fill="#d48ec9" opacity="0.85" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-11" rx="6.5" ry="11"   fill="#ba6db3" opacity="0.85" transform="rotate(108)"/>
+      <ellipse cx="0" cy="-11" rx="6.5" ry="11"   fill="#d48ec9" opacity="0.85" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-11" rx="6.5" ry="11"   fill="#c97bbf" opacity="0.9" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-11" rx="6.5" ry="11"   fill="#ba6db3" opacity="0.85" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-11" rx="6.5" ry="11"   fill="#d48ec9" opacity="0.85" transform="rotate(252)"/>
+      <ellipse cx="0" cy="-11" rx="6.5" ry="11"   fill="#c97bbf" opacity="0.9" transform="rotate(288)"/>
+      <ellipse cx="0" cy="-11" rx="6.5" ry="11"   fill="#ba6db3" opacity="0.85" transform="rotate(324)"/>
+      <circle cx="0" cy="0" r="6" fill="#e8b0e0" opacity="0.75"/>
+      <circle cx="0" cy="0" r="3.5" fill="#f2cced" opacity="0.85"/>
+    </g>
+    <g transform="translate(62, 122) rotate(15)">
+      <ellipse cx="0" cy="-7" rx="4.5" ry="7"   fill="#c97bbf" opacity="0.9"/>
+      <ellipse cx="0" cy="-7" rx="4.5" ry="7"   fill="#d48ec9" opacity="0.85" transform="rotate(45)"/>
+      <ellipse cx="0" cy="-7" rx="4.5" ry="7"   fill="#ba6db3" opacity="0.85" transform="rotate(90)"/>
+      <ellipse cx="0" cy="-7" rx="4.5" ry="7"   fill="#d48ec9" opacity="0.85" transform="rotate(135)"/>
+      <ellipse cx="0" cy="-7" rx="4.5" ry="7"   fill="#c97bbf" opacity="0.9" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-7" rx="4.5" ry="7"   fill="#ba6db3" opacity="0.85" transform="rotate(225)"/>
+      <ellipse cx="0" cy="-7" rx="4.5" ry="7"   fill="#d48ec9" opacity="0.85" transform="rotate(270)"/>
+      <ellipse cx="0" cy="-7" rx="4.5" ry="7"   fill="#c97bbf" opacity="0.9" transform="rotate(315)"/>
+      <circle cx="0" cy="0" r="4" fill="#e8b0e0" opacity="0.7"/>
+      <circle cx="0" cy="0" r="2.5" fill="#f2cced" opacity="0.8"/>
+    </g>
+    <g transform="translate(95, 97) rotate(-5)">
+      <ellipse cx="0" cy="-5" rx="3" ry="5"   fill="#c97bbf" opacity="0.85"/>
+      <ellipse cx="0" cy="-5" rx="3" ry="5"   fill="#d48ec9" opacity="0.8" transform="rotate(60)"/>
+      <ellipse cx="0" cy="-5" rx="3" ry="5"   fill="#ba6db3" opacity="0.8" transform="rotate(120)"/>
+      <ellipse cx="0" cy="-5" rx="3" ry="5"   fill="#d48ec9" opacity="0.8" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-5" rx="3" ry="5"   fill="#c97bbf" opacity="0.85" transform="rotate(240)"/>
+      <ellipse cx="0" cy="-5" rx="3" ry="5"   fill="#ba6db3" opacity="0.8" transform="rotate(300)"/>
+      <circle cx="0" cy="0" r="2.5" fill="#f2cced" opacity="0.75"/>
+    </g>
+    <g fill="#6b8e6a" opacity="0.8">
+      <ellipse cx="115" cy="80" rx="8"  ry="3"   transform="rotate(-30 115 80)"/>
+      <ellipse cx="88"  cy="100" rx="7" ry="2.8" transform="rotate(-20 88 100)"/>
+      <ellipse cx="58"  cy="122" rx="6.5" ry="2.5" transform="rotate(-10 58 122)"/>
+      <ellipse cx="100" cy="72" rx="6"  ry="2.2" transform="rotate(15 100 72)"/>
+      <ellipse cx="122" cy="62" rx="5"  ry="2"   transform="rotate(-35 122 62)"/>
+    </g>
+  </svg>
+
+  <!-- bottom-right mirror -->
+  <svg class="mem-floral mem-floral--br" viewBox="0 0 180 180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#7a6e9a" stroke-width="1.4" stroke-linecap="round">
+      <path d="M5 175 C 30 140 60 110 100 75"/>
+      <path d="M5 175 C 40 135 75 105 115 68"/>
+      <path d="M5 175 C 20 150 40 130 70 105"/>
+      <path d="M20 175 C 50 140 80 115 120 82"/>
+      <path d="M5 175 C 55 125 90 95 130 58"/>
+      <path d="M45 140 C 38 128 35 115 42 105"/>
+      <path d="M65 118 C 58 106 60 93 68 86"/>
+      <path d="M88 96  C 82 85 86 72 95 66"/>
+      <path d="M110 75 C 103 64 107 52 116 47"/>
+      <path d="M60 125 C 72 117 85 117 93 110"/>
+      <path d="M82 103 C 94 95 107 95 115 88"/>
+    </g>
+    <g>
+      <circle cx="100" cy="73" r="3.2" fill="#9b7fc7"/>
+      <circle cx="108" cy="65" r="2.8" fill="#b89de0"/>
+      <circle cx="94"  cy="66" r="2.6" fill="#7f5cb5"/>
+      <circle cx="105" cy="79" r="2.4" fill="#c4aee8"/>
+      <circle cx="114" cy="60" r="3"   fill="#9b7fc7"/>
+      <circle cx="120" cy="70" r="2.5" fill="#b89de0"/>
+      <circle cx="92"  cy="80" r="2.2" fill="#7f5cb5"/>
+      <circle cx="75"  cy="93" r="3"   fill="#9b7fc7"/>
+      <circle cx="83"  cy="86" r="2.6" fill="#b89de0"/>
+      <circle cx="68"  cy="89" r="2.4" fill="#7f5cb5"/>
+      <circle cx="79"  cy="100" r="2.6" fill="#c4aee8"/>
+      <circle cx="91"  cy="102" r="2.2" fill="#9b7fc7"/>
+      <circle cx="115" cy="85" r="2.5" fill="#b89de0"/>
+      <circle cx="50"  cy="118" r="3"   fill="#9b7fc7"/>
+      <circle cx="60"  cy="110" r="2.6" fill="#b89de0"/>
+      <circle cx="43"  cy="114" r="2.4" fill="#7f5cb5"/>
+      <circle cx="55"  cy="125" r="2.2" fill="#c4aee8"/>
+      <circle cx="130" cy="55" r="3"   fill="#7f5cb5"/>
+      <circle cx="136" cy="63" r="2.5" fill="#c4aee8"/>
+      <circle cx="122" cy="80" r="2.4" fill="#9b7fc7"/>
+      <circle cx="108" cy="92" r="2.2" fill="#b89de0"/>
+      <circle cx="70"  cy="108" r="2"  fill="#c4aee8"/>
+    </g>
+    <g transform="translate(130, 34) rotate(-8)">
+      <ellipse cx="0" cy="-11" rx="6.5" ry="11"   fill="#c97bbf" opacity="0.9"/>
+      <ellipse cx="0" cy="-11" rx="6.5" ry="11"   fill="#c97bbf" opacity="0.9" transform="rotate(36)"/>
+      <ellipse cx="0" cy="-11" rx="6.5" ry="11"   fill="#d48ec9" opacity="0.85" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-11" rx="6.5" ry="11"   fill="#ba6db3" opacity="0.85" transform="rotate(108)"/>
+      <ellipse cx="0" cy="-11" rx="6.5" ry="11"   fill="#d48ec9" opacity="0.85" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-11" rx="6.5" ry="11"   fill="#c97bbf" opacity="0.9" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-11" rx="6.5" ry="11"   fill="#ba6db3" opacity="0.85" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-11" rx="6.5" ry="11"   fill="#d48ec9" opacity="0.85" transform="rotate(252)"/>
+      <ellipse cx="0" cy="-11" rx="6.5" ry="11"   fill="#c97bbf" opacity="0.9" transform="rotate(288)"/>
+      <ellipse cx="0" cy="-11" rx="6.5" ry="11"   fill="#ba6db3" opacity="0.85" transform="rotate(324)"/>
+      <circle cx="0" cy="0" r="6" fill="#e8b0e0" opacity="0.75"/>
+      <circle cx="0" cy="0" r="3.5" fill="#f2cced" opacity="0.85"/>
+    </g>
+    <g transform="translate(62, 122) rotate(15)">
+      <ellipse cx="0" cy="-7" rx="4.5" ry="7"   fill="#c97bbf" opacity="0.9"/>
+      <ellipse cx="0" cy="-7" rx="4.5" ry="7"   fill="#d48ec9" opacity="0.85" transform="rotate(45)"/>
+      <ellipse cx="0" cy="-7" rx="4.5" ry="7"   fill="#ba6db3" opacity="0.85" transform="rotate(90)"/>
+      <ellipse cx="0" cy="-7" rx="4.5" ry="7"   fill="#d48ec9" opacity="0.85" transform="rotate(135)"/>
+      <ellipse cx="0" cy="-7" rx="4.5" ry="7"   fill="#c97bbf" opacity="0.9" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-7" rx="4.5" ry="7"   fill="#ba6db3" opacity="0.85" transform="rotate(225)"/>
+      <ellipse cx="0" cy="-7" rx="4.5" ry="7"   fill="#d48ec9" opacity="0.85" transform="rotate(270)"/>
+      <ellipse cx="0" cy="-7" rx="4.5" ry="7"   fill="#c97bbf" opacity="0.9" transform="rotate(315)"/>
+      <circle cx="0" cy="0" r="4" fill="#e8b0e0" opacity="0.7"/>
+      <circle cx="0" cy="0" r="2.5" fill="#f2cced" opacity="0.8"/>
+    </g>
+    <g transform="translate(95, 97) rotate(-5)">
+      <ellipse cx="0" cy="-5" rx="3" ry="5"   fill="#c97bbf" opacity="0.85"/>
+      <ellipse cx="0" cy="-5" rx="3" ry="5"   fill="#d48ec9" opacity="0.8" transform="rotate(60)"/>
+      <ellipse cx="0" cy="-5" rx="3" ry="5"   fill="#ba6db3" opacity="0.8" transform="rotate(120)"/>
+      <ellipse cx="0" cy="-5" rx="3" ry="5"   fill="#d48ec9" opacity="0.8" transform="rotate(180)"/>
+      <ellipse cx="0" cy="-5" rx="3" ry="5"   fill="#c97bbf" opacity="0.85" transform="rotate(240)"/>
+      <ellipse cx="0" cy="-5" rx="3" ry="5"   fill="#ba6db3" opacity="0.8" transform="rotate(300)"/>
+      <circle cx="0" cy="0" r="2.5" fill="#f2cced" opacity="0.75"/>
+    </g>
+    <g fill="#6b8e6a" opacity="0.8">
+      <ellipse cx="115" cy="80" rx="8"  ry="3"   transform="rotate(-30 115 80)"/>
+      <ellipse cx="88"  cy="100" rx="7" ry="2.8" transform="rotate(-20 88 100)"/>
+      <ellipse cx="58"  cy="122" rx="6.5" ry="2.5" transform="rotate(-10 58 122)"/>
+      <ellipse cx="100" cy="72" rx="6"  ry="2.2" transform="rotate(15 100 72)"/>
+      <ellipse cx="122" cy="62" rx="5"  ry="2"   transform="rotate(-35 122 62)"/>
+    </g>
+  </svg>
+
+  <h1 class="memory-title">Our Moments Together ♥</h1>
+
+  <div class="memory-grid">
+    <div class="polaroid p1"><img src="19m1.jpg" alt=""><span>♡</span></div>
+    <div class="polaroid p2"><img src="19m2.jpg" alt=""><span>♡</span></div>
+    <div class="polaroid p3"><img src="19m3.jpg" alt=""><span>♡</span></div>
+    <div class="polaroid p4"><img src="19m4.jpg" alt=""><span>♡</span></div>
+    <div class="polaroid p5"><img src="19m5.jpg" alt=""><span>♡</span></div>
+    <div class="polaroid p6"><img src="19m6.jpg" alt=""><span>♡</span></div>
+    <div class="polaroid p7"><img src="19m7.jpg" alt=""><span>♡</span></div>
+    <div class="polaroid p8"><img src="19m8.jpg" alt=""><span>♡</span></div>
+  </div>
+
+  <div class="btn-group">
+    <button class="back-btn" type="button" onclick="showPage('page-letter')">← Back to Letter</button>
+    <button class="back-btn" type="button" onclick="showPage('page-reasons')">Next →</button>
+  </div>
+
+</section>
+
+
+<!-- =================================================================
+     PAGE 4 — REASONS WHY I LOVE YOU
+     ================================================================= -->
+<section id="page-reasons" class="page page-reasons">
+  <h1 class="reasons-title">Reasons why i love you</h1>
+  <div class="reasons-layout">
+    <div class="reasons-col left">
+      <div class="reason-card">I love you because you always know how to make me smile, even on my hardest days.</div>
+      <div class="reason-card">I love you because your love makes me feel safe, valued, and appreciated.</div>
+      <div class="reason-card">I love you because you stay patient and understanding with me.</div>
+    </div>
+    <div class="flower-frame">
+      <img src="tulips.png" alt="flowers">
+    </div>
+    <div class="reasons-col right">
+      <div class="reason-card">I love you because being with you makes my heart the happiest it has ever been.</div>
+      <div class="reason-card">I love you because you make my life brighter just by being a part of it.</div>
+      <div class="reason-card">I love you because you believe in me, even when I struggle to believe in myself.</div>
+    </div>
+  </div>
+  <div class="nav">
+    <button class="nav-btn" type="button" onclick="showPage('page-memory')">← Back</button>
+    <button class="nav-btn" type="button" onclick="showPage('page-anothermonth')">Next →</button>
+  </div>
+</section>
+
+
+<!-- =================================================================
+     PAGE 5 — TO MORE MONTHS WITH YOU
+     ================================================================= -->
+<section id="page-anothermonth" class="page page-anothermonth">
+<div class="hearts-bg">
+  <span class="float-heart" style="left:8%;  animation-delay:0s;   font-size:0.8rem;">♡</span>
+  <span class="float-heart" style="left:22%; animation-delay:1.2s; font-size:1.1rem;">♡</span>
+  <span class="float-heart" style="left:40%; animation-delay:2.4s; font-size:0.7rem;">♡</span>
+  <span class="float-heart" style="left:60%; animation-delay:0.8s; font-size:1rem;">♡</span>
+  <span class="float-heart" style="left:75%; animation-delay:1.9s; font-size:0.9rem;">♡</span>
+  <span class="float-heart" style="left:88%; animation-delay:3.1s; font-size:0.75rem;">♡</span>
+</div>
+<div class="deco-bow">🎀</div>
+  <div class="deco-star">⭐</div>
+  <div class="deco-heart">❤️</div>
+  <div class="deco-snoopy">🐶</div>
+  <h1 class="another-title">To More Years With You ♥</h1>
+  <div class="photo-row">
+    <div class="polaroid p1"><img src="19tm1.jpg" alt=""></div>
+    <div class="polaroid p2"><img src="19m5.jpg" alt=""></div>
+    <div class="polaroid p3"><img src="19m8.jpg" alt=""></div>
+    <div class="polaroid p4"><img src="19tm4.jpg" alt=""></div>
+  </div>
+  <div class="nav">
+    <button class="nav-btn" type="button" onclick="showPage('page-reasons')">← Back</button>
+    <button class="nav-btn" type="button" onclick="showPage('page-songforyou')">Next →</button>
+  </div>
+</section>
+
+
+<!-- =================================================================
+     PAGE 6 — SONG FOR YOU
+     ================================================================= -->
+<section id="page-songforyou" class="page page-songforyou">
+  <div class="stars" id="stars"></div>
+  <div class="deco-flower">🌺🌺</div>
+  <h1 class="song-title">Song for you</h1>
+  <div class="tablet-frame">
+    <div class="tablet-screen">
+      <div id="songPlayerWrap">
+        <div id="songPlayer"></div>
+      </div>
+      <div id="songFallback" class="song-fallback" hidden>
+        <a id="songFallbackLink" class="song-fallback-btn"
+           href="https://www.youtube.com/watch?v=ptkkWb8aIbM"
+           target="_blank" rel="noopener">
+          ▶ Watch on YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="nav">
+    <button class="nav-btn" type="button" onclick="showPage('page-anothermonth')">← Back</button>
+    <button class="nav-btn" type="button" onclick="showPage('page-finalpage')">Next →</button>
+  </div>
+</section>
+
+
+<!-- =================================================================
+     PAGE 7 — FINAL PAGE
+     ================================================================= -->
+<section id="page-finalpage" class="page page-finalpage">
+ <div class="bg"><img src="19m2f.jpg" alt=""></div>
+  <div class="overlay"></div>
+  <div class="content">
+    <h1 class="final-title">Happy 3rd Anniversary,<br>My Love! 💛</h1>
+    <button class="nav-btn final-back-btn" type="button" onclick="showPage('page-songforyou')">← Back</button>
+  </div>
+</section>
+
+
+<!-- Shared audio + music toggle -->
+<audio id="bgMusic" loop>
+  <source src="balisong.mp3" type="audio/mpeg">
+</audio>
+<button class="music-btn" id="musicBtn" title="Toggle music">♪</button>
+
+<script src="nineteenth.js"></script>
+</body>
+</html>
